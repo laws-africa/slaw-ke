@@ -8,9 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Slaw::KE::VERSION
   spec.authors       = ["Greg Kempe"]
   spec.email         = ["greg@kempe.net"]
-  spec.summary       = "A lightweight library for using Akoma Ntoso acts in Ruby."
-  spec.description   = "Slaw is a lightweight library for rendering and generating Akoma Ntoso acts from plain text and PDF documents."
-  spec.homepage      = "https://github.com/longhotsummer/slaw"
+  spec.summary       = "Slaw grammar for Kenya"
+  spec.homepage      = "https://github.com/laws-africa/slaw-ke"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -22,5 +21,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.3.1"
   spec.add_development_dependency "rspec", "~> 2.14.1"
 
-  #spec.add_runtime_dependency "slaw", "~> 1.0"
+  spec.add_runtime_dependency "slaw", "~> 1.1"
 end

@@ -1,0 +1,14 @@
+# encoding: UTF-8
+
+require 'slaw/grammars/ke/act_nodes'
+require 'slaw/grammars/za/act'
+
+module Slaw
+  module Grammars
+    module KE
+      grammar Act
+        include Slaw::Grammars::ZA::Act
+      end
+    end
+  end
+end

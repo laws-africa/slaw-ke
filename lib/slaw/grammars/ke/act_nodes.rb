@@ -16,6 +16,20 @@ module Slaw
             }
           end
         end
+
+
+        class Bold < Treetop::Runtime::SyntaxNode
+          def to_xml(b, idprefix)
+            b.b(content.text_value)
+          end
+        end
+
+        class Italics < Treetop::Runtime::SyntaxNode
+          def to_xml(b, idprefix)
+            b.i(content.text_value)
+          end
+        end
+        
       end
     end
   end

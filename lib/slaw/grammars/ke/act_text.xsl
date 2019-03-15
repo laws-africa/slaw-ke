@@ -252,6 +252,18 @@
     <xsl:text>)</xsl:text>
   </xsl:template>
 
+  <xsl:template match="a:i">
+    <xsl:text>//</xsl:text>
+    <xsl:apply-templates />
+    <xsl:text>//</xsl:text>
+  </xsl:template>
+
+  <xsl:template match="a:b">
+    <xsl:text>**</xsl:text>
+    <xsl:apply-templates />
+    <xsl:text>**</xsl:text>
+  </xsl:template>
+
   <xsl:template match="a:eol">
     <xsl:text>
 </xsl:text>

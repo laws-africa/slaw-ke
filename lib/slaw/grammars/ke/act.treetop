@@ -26,6 +26,24 @@ module Slaw
           'CROSSHEADING ' clauses:clauses eol
           <Crossheading>
         end
+
+        # one or more words, allowing inline elements
+        rule clauses
+          (remark / image / ref / bold / italics / [^\n])+
+          <Clauses>
+        end
+
+        rule bold
+          # **foo**
+          '**' content:(!'**' [^\n])+ '**'
+          <Bold>
+        end
+
+        rule italics
+          # //foo//
+          '//' content:(!'//' [^\n])+ '//'
+          <Italics>
+        end
       end
     end
   end

@@ -91,6 +91,15 @@
     <xsl:text>CROSSHEADING </xsl:text>
     <xsl:apply-templates select="a:heading" />
   </xsl:template>
+
+  <!-- longtitle -->
+  <xsl:template match="a:longTitle">
+    <xsl:text>LONGTITLE </xsl:text>
+    <xsl:apply-templates />
+    <xsl:text>
+
+</xsl:text>
+  </xsl:template>
   
   <xsl:template match="a:subsection">
     <xsl:if test="a:num != ''">

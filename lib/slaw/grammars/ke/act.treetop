@@ -9,6 +9,18 @@ module Slaw
       grammar Act
         include Slaw::Grammars::ZA::Act
 
+        rule preface
+          !'PREAMBLE'
+          ('PREFACE'i space? eol)?
+          statements:(!'PREAMBLE' preface_statement)* <Preface>
+        end
+
+        rule preface_statement
+          space? !(chapter_heading / part_heading / section_title / schedule_title)
+          content:(longtitle / ('\\'? clauses:clauses eol))
+          <PrefaceStatement>
+        end
+
         rule block_paragraphs
           crossheading / block_elements
         end
@@ -25,6 +37,11 @@ module Slaw
         rule crossheading
           'CROSSHEADING ' clauses:clauses eol
           <Crossheading>
+        end
+
+        rule longtitle
+          'LONGTITLE ' clauses:clauses eol
+          <LongTitle>
         end
 
         # one or more words, allowing inline elements

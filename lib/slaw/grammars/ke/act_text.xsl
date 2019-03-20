@@ -78,7 +78,7 @@
 
     <xsl:apply-templates select="./*[not(self::a:num) and not(self::a:heading)]" />
   </xsl:template>
-
+  
   <xsl:template match="a:subsection">
     <xsl:if test="a:num != ''">
       <xsl:value-of select="a:num" />
@@ -157,16 +157,17 @@
 
   <!-- old-style schedules, "article" elements -->
   <xsl:template match="a:doc/a:mainBody/a:article">
-    <xsl:text>Schedule - </xsl:text>
+    <xsl:text>SCHEDULE - </xsl:text>
     <xsl:value-of select="../../a:meta/a:identification/a:FRBRWork/a:FRBRalias/@value" />
     <xsl:text>&#10;</xsl:text>
 
-    <xsl:if test="not(a:mainBody/a:article/a:heading)">
-      <!-- ensure an extra blank line if there is no heading -->
+    <xsl:if test="a:heading">
+      <xsl:apply-templates select="a:heading" />
       <xsl:text>&#10;</xsl:text>
     </xsl:if>
 
-    <xsl:apply-templates select="a:mainBody" />
+    <xsl:text>&#10;</xsl:text>
+    <xsl:apply-templates select="./*[not(self::a:heading)]"/>
   </xsl:template>
 
 
